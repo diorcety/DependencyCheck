@@ -19,6 +19,12 @@
             <xs:maxInclusive value="10"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="confidenceScoreType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
     <xs:simpleType name="cveType">
         <xs:restriction base="xs:string">
             <xs:pattern value="((\w+\-)?CVE\-\d\d\d\d\-\d+|\d+)"/>
@@ -48,6 +54,7 @@
                                 <xs:element name="cve" type="dc:cveType"/>
                                 <xs:element name="cwe" type="xs:positiveInteger"/>
                                 <xs:element name="cvssBelow" type="dc:cvssScoreType"/>
+                                <xs:element name="confidenceBelow" type="dc:confidenceScoreType"/>
                             </xs:choice>
                         </xs:sequence>
                         <xs:attribute name="base" use="optional" type="xs:boolean" default="false"/>
